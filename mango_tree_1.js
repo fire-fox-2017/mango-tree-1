@@ -33,9 +33,6 @@ class MangoTree {
   }
 
 
-  // Get current states here
-
-  // Grow the tree
   grow(tambahTinggi) {
     if(this.tinggi<this.MAX_TINGGI){
       this.tinggi=tambahTinggi+this.tinggi;
