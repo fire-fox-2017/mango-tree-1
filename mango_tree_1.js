@@ -37,11 +37,13 @@ class MangoTree {
   // Grow the tree
   grow() {
     if(this.getHealtyStatus() == true) {
-      this.age++;
 
-      if (this.age >= this.max_age) {
-        // cannot overlap max_age
-        this.age = this.max_age;
+      if (this.age < this.max_age) {
+        this.age++;
+      }
+
+      if(this.age >= this.max_age) {
+        // already reached max_age, tree is dead
         this.healthy = false;
       }
 
@@ -49,10 +51,7 @@ class MangoTree {
       if (this.height > this.max_height) {
         this.height = this.max_height;
       }
-
-
     }
-
   }
 
   // Produce some mangoes
@@ -62,22 +61,22 @@ class MangoTree {
 
     for (let i = 0 ; i < totalProduced ; i++) {
       let mango = new Mango();
+      // count the mango qualities
       mango.quality == "good" ? this.countGood++ : this.countBad++;
-
+      // store the produced mangoes in fruits array
       this.fruits.push(mango);
     }
-    // console.log(`Produce mango = ${totalProduced}`);
   }
 
   // Get some fruits
   harvest() {
     this.harvested = `${this.fruits.length} (${this.countGood} good, ${this.countBad} bad)`;
-    // after harvest, empty the fruits, and reset count
+
+    // after harvest, empty the fruits array, and reset count
     this.fruits = [];
     this.countBad = 0;
     this.countGood = 0;
   }
-
 }
 
 class Mango {
