@@ -77,7 +77,7 @@ class Mango {
     this._quality = "";
   }
   qualitize() {
-    if (Math.random()>0.6) {
+    if (Math.random()<0.6) {
       this._quality = "good"
     } else {
       this._quality = "bad"
