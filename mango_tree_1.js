@@ -6,7 +6,7 @@ class MangoTree {
   constructor() {
     this.age = 0;
     this.maxAge = getRandomNumber(5) + 18;
-    this.height = 0.1;
+    this.height = 0;
     this.fruitCap = getRandomNumber(10) + 5;
     this.fruits = [];
     this.harvested = "";
@@ -32,11 +32,13 @@ class MangoTree {
     this.age += 1;
     this.fruits = [];
     this.fruitCap = getRandomNumber(10) + 5;
+    let newHeight = 0.0;
     if (this.age < this.maxAge - 5) {
-      this.height += (getRandomNumber(2)*0.1 + 0.2);
+      newHeight = this.height + ((getRandomNumber(3)+1)/10);
     } else {
-      this.height += (getRandomNumber(2)*0.1);
+      newHeight = this.height + ((getRandomNumber(2))/10);
     }
+    this.height = Math.round(newHeight*10)/10;
     if (this.age === this.maxAge) {
       this.healthy = false;
     }
@@ -73,8 +75,8 @@ class Mango {
   }
 }
 
-function getRandomNumber(max) {
-  return Math.round(Math.floor(Math.random()*max));
+function getRandomNumber(limit) {
+  return Math.round(Math.floor(Math.random()*limit));
 }
 
 // test the code
