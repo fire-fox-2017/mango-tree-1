@@ -40,7 +40,6 @@ class MangoTree {
       if (this._age < this._maxAge - 2) {
         this._height += getRandomNumber(3);
       }
-
       if (this._age >= this._maxAge) {
         this._healthy = false
       }
@@ -70,9 +69,7 @@ class MangoTree {
     this._tempFruit = [];
     this._tempG = 0
     this._tempB = 0
-
   }
-
 }
 
 class Mango {
@@ -98,8 +95,6 @@ do {
   console.log(`[Year ${tree._age} Report] Height = ${tree._height} | Fruits harvested = ${tree._harvested}`);
 } while (tree._healthy != false);
 console.log(`The tree is alive! :sad"`);
-
-// console.log(getRandomNumber(5));
 
 module.exports = {
   MangoTree,
