@@ -33,10 +33,10 @@ class MangoTree {
     this.fruits = [];
     this.fruitCap = getRandomNumber(10) + 5;
     let newHeight = 0.0;
-    if (this.age < this.maxAge - 5) {
+    if (this.age < this.maxAge - 2) {
       newHeight = this.height + ((getRandomNumber(3)+1)/10);
     } else {
-      newHeight = this.height + ((getRandomNumber(2))/10);
+      newHeight = this.height + 0;
     }
     this.height = Math.round(newHeight*10)/10;
     if (this.age === this.maxAge) {
