@@ -7,7 +7,7 @@ class MangoTree {
     this._age=0;
     this._height=0;
     this._max=20;
-    this._fruit=0;
+    this._fruit=[];
     this._healthy=true;
     this._harvested=0;
   }
@@ -46,8 +46,10 @@ class MangoTree {
   // Produce some mangoes
   produceMangoes() {
     if(this._age <= 20 && this._fruit <= this._max){
-      this._fruit += Math.floor(Math.random()*this._max)+5;
-      return this._fruit;
+      for(let i=0; i<Math.floor(Math.random()*this._max)+5; i++) {
+        var mango = new Mango();
+        this._fruit.push(mango)
+      }
     }
   }
 
@@ -56,16 +58,15 @@ class MangoTree {
     var good = 0;
     var bad = 0;
     var mango = new Mango();
-    for(let i=0; i<this._fruit; i++){
-      mango.qualitize();
-      if(mango._quality==="good"){
+    for(let i=0; i<this._fruit.length; i++){
+      if(this._fruit._quality==="good"){
         good += 1;
       } else {
         bad += 1;
       }
     }
-    this._harvested = `${this._fruit} (${good} good, ${bad} bad)`;
-    this._fruit=0;
+    this._harvested = `${this._fruit.length} (${good} good, ${bad} bad)`;
+    this._fruit=[];
     return this._harvested;
   }
 
@@ -75,6 +76,7 @@ class Mango {
   // Produce a mango
   constructor() {
     this._quality = "";
+    this.qualitize();
   }
   qualitize() {
     if (Math.random()<0.6) {
