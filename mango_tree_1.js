@@ -9,8 +9,8 @@ class MangoTree {
     this.fruits = []; //kumpulan buah yang diproduksi
     this.harvested = ""; //jumlah buah yang sudah dipetik
     this.healthy = true;
-    this.maxAge = 9;
-    this.maxHeight = 10;
+    this.maxAge = 20;
+    this.maxHeight = 30;
     this.maxFruit = 10;
     this.goodMango = 0;
     this.badMango = 0;
@@ -34,9 +34,10 @@ class MangoTree {
 
   // Grow the tree
   grow() {
-    if(this.age <= this.maxAge){
+    if(this.age < this.maxAge){
       this.age++;
-    } else {
+    }
+    if(this.age >= this.maxAge){
       this.healthy = false;
     }
 
@@ -116,7 +117,7 @@ do {
   tree.produceMangoes();
   tree.harvest();
 
-  console.log(`[Year ${tree.age} Report] Height = ${tree.height} m |  Fruits harvested = ${tree.harvested}`)
+  console.log(`[Year ${tree.age} Report] Height = ${tree.height} m |  Fruits harvested = ${tree.harvested}`);
 } while (tree.healthy != false)
 
 console.log(`The tree has met its end. :sad:`);
