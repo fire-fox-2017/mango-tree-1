@@ -57,9 +57,8 @@ class MangoTree {
   harvest() {
     var good = 0;
     var bad = 0;
-    var mango = new Mango();
     for(let i=0; i<this._fruit.length; i++){
-      if(this._fruit._quality==="good"){
+      if(this._fruit[i]._quality==="good"){
         good += 1;
       } else {
         bad += 1;
