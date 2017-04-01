@@ -25,7 +25,7 @@ class MangoTree {
   }
   getHealtyStatus() {
     if(this.MAX_HIDUP<this.umur){
-      this.status='sakit';
+      this.status='mati';
     }
 
 
@@ -47,6 +47,7 @@ class MangoTree {
       console.log('Umur ' +this.umur+" | "+this.tinggi+' '+this.produceMangoes());
 
     }else{
+      this.status='mati';
       console.log('pohon mati....');
 
     }
@@ -100,18 +101,11 @@ function getRandomNumber() {
 
 
 let poon1 = new MangoTree();
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
-poon1.grow(getRandomNumber());
+
+while(poon1.getHealtyStatus()==='sehat'){
+  poon1.grow(getRandomNumber());
+
+}
 
 
 
