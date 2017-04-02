@@ -101,7 +101,7 @@ function randomGenerator(num) {
   return random;
 }
 
-let myMangoTree = new MangoTree({
+let mangoTreeStatus = new MangoTree({
   'umur': 0,
   'tinggi': 0,
   'maxBuahCapacity': 10,
@@ -114,12 +114,12 @@ let myMangoTree = new MangoTree({
 console.log(`Pohonnya hidup!! :D `)
 
 do {
-  myMangoTree.grow()
-  myMangoTree.produceMangoes()
-  myMangoTree.harvest()
+  mangoTreeStatus.grow()
+  mangoTreeStatus.produceMangoes()
+  mangoTreeStatus.harvest()
 
-  console.log(`[Umur ${myMangoTree.umur} Report] tinggi = ${myMangoTree.tinggi} m | Buah Panen = ${myMangoTree.numOfPanenBuah} ${myMangoTree.BuahQualityChecker()}`)
-} while (myMangoTree.isHealthly != false)
+  console.log(`[Umur ${mangoTreeStatus.umur} Report] tinggi = ${mangoTreeStatus.tinggi} m | Buah Panen = ${mangoTreeStatus.numOfPanenBuah} ${mangoTreeStatus.BuahQualityChecker()}`)
+} while (mangoTreeStatus.isHealthly != false)
 
 console.log(`Pohon telah mati. :'( `)
 
