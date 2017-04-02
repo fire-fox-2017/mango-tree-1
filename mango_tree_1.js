@@ -47,11 +47,9 @@ class MangoTree {
 
   // Produce some mangoes
   produceMangoes() {
-    var maxproduce = Math.floor(Math.random()*5);
-    for(var i = 0; i < maxproduce; i++ ){
     var mangoes = new Mango()
-    this._Fruits.push(mangoes)
-  }
+    this._Fruits.push(Math.floor(Math.random()*15))
+//    console.log(this._Fruits)
 }
 
 
@@ -59,21 +57,15 @@ class MangoTree {
 
   // Get some fruits
   harvest() {
-    this._Harvested = this._Fruits.length;
-    return this._Harvested;
+    for (let i = 0; i < this._Fruits.length; i++){
+    this._Harvested = this._Fruits[i];
+  }
+  return this._Harvested;
 }
 
 quality() {
-    let good = 0;
-      let bad = 0;
-
-      for(let i = 0; i < this._Fruits.length; i++) {
-        if(this._Fruits[i]._HealthyStatus === true) {
-          good++;
-        } else {
-          bad++;
-        }
-      }
+      let good = Math.floor(Math.random()*this._Harvested);
+      let bad = this._Harvested - good;
       let harvested = `(${good} good, ${bad} bad)`;
       return harvested;
   }
@@ -98,11 +90,6 @@ class Mango {
     }
   }
 
- /*randomProduce(){
-  var random = Math.Floor(Math.random()*5)
-  return random;
-  }
-}*/
 let newMangoTree = new MangoTree
 
 console.log(`The tree is alive! :smile:`)
@@ -111,7 +98,7 @@ do {
   newMangoTree.grow()
   newMangoTree.produceMangoes()
   newMangoTree.harvest()
-  console.log(`[Year ${newMangoTree._Age} Report] Height = ${newMangoTree._Height} m |
+  console.log(`[Year ${newMangoTree._Age} Report] Height = ${newMangoTree._Height}  |
   Fruits harvested = ${newMangoTree._Harvested} ${newMangoTree.quality()}`)
 }
 while (newMangoTree._HealthyStatus !== false)
