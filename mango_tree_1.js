@@ -9,35 +9,16 @@ class MangoTree {
     this._sehat=true;
     this._jumlahBuah=[];
     this._panen=0;
-    this._random
   }
-
-  getAge() {
-    return this._umur;
-  }
-  getHeight() {
-    return this._tinggi;
-  }
-  getFruits() {
-    return this._jumlahBuah;
-  }
-  getHealtyStatus() {
-    return this._sehat;
-  }
-
-
-  // Get current states here
 
   // Grow the tree
   grow() {
-
-    let batasPertahun = 6;
     let maxUmur = 10;
-    let randomTinggi = randomNumber(batasPertahun);
+    let umurBatasTumbuh=5;
+    let randomTinggi = randomNumber(2);
     this._umur += 1;
-    if(this._umur <= maxUmur) {
-      this._tinggi += randomTinggi;
-
+    if(this._umur <= umurBatasTumbuh) {
+      this._tinggi +=randomTinggi;
     }
 
     if(this._umur === maxUmur) {
@@ -48,9 +29,14 @@ class MangoTree {
 
   // Produce some mangoes
   produceMangoes() {
-    for(let i = 0; i < randomNumber(5); i++) {
-      let mangos = new Mango();
-      this._jumlahBuah.push(mangos);
+
+    let tahunBerbuah=4;
+    if(this._umur>=tahunBerbuah){
+      for(let i = 0; i < randomNumber(5); i++)
+      {
+        let mangos = new Mango();
+        this._jumlahBuah.push(mangos);
+      }
     }
   }
 
@@ -86,7 +72,7 @@ class Mango {
 }
 
 function RandomKualitas() {
-  let random = Math.floor(Math.random()*100);
+  let random = Math.round(Math.random()*100);
   if(random%2=== 0) {
     return "good";
   } else {
@@ -95,7 +81,7 @@ function RandomKualitas() {
 }
 
 function randomNumber(num) {
-  let random = Math.floor(Math.random() * num);
+  let random =Math.floor(Math.random()*num)+3;
   return random;
 }
 var tree = new MangoTree();
