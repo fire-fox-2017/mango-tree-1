@@ -44,7 +44,7 @@ class MangoTree {
 
     if(this.umur<this.MAX_HIDUP){
       this.umur++;
-      console.log('Umur ' +this.umur+" | "+this.tinggi+' '+this.produceMangoes());
+      console.log('Umur ' +this.umur+" | "+this.tinggi+' '+this.harvest());
 
     }else{
       this.status='mati';
@@ -60,9 +60,18 @@ class MangoTree {
   // Produce some mangoes
   produceMangoes() {
     let jumlahBuah = Math.floor((Math.random() * this.MAX_BUAH) + 1);
+
+
+    return jumlahBuah
+  }
+
+  // Get some fruits
+  harvest() {
+    let kumBuah = this.produceMangoes();
+
     let bagus=0;
 
-    for(let i=0;i<jumlahBuah;i++){
+    for(let i=0;i<kumBuah;i++){
       let buah = new Mango();
       if(buah.quality==='bagus'){
         bagus++;
@@ -70,11 +79,9 @@ class MangoTree {
       }
     }
 
-    return ('jumlah buah : '+jumlahBuah+' | bagus : '+bagus+' jelek : '+(jumlahBuah-bagus));
-  }
 
-  // Get some fruits
-  harvest() {
+    return ('jumlah buah : '+kumBuah+' | bagus : '+bagus+' jelek : '+(kumBuah-bagus));
+
   }
 
 }
