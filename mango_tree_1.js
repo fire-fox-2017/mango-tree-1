@@ -5,7 +5,7 @@ class MangoTree {
   // Initialize a new MangoTree
   constructor(maximumAge, maximumGrowPeriod, maximumFruitPerYear) {
     this._fruitBasket = [];
-    this._maxFruitPerYear = maximumFruitPerYear;
+    this._maxFruitPerYear = maximumFruitPerYear;  //50
     this._age = 0;
     this._maxAge = maximumAge;
     this._height = 0;
@@ -14,6 +14,7 @@ class MangoTree {
     this._goodMangoes = 0;
     this._badMangoes = 0;
     this._harvested = '';
+    this._totalBuah = 0;
   }
 
   getAge() {
@@ -56,9 +57,10 @@ class MangoTree {
 
   // Produce some mangoes
   produceMangoes() {
-    for (let i = 0; i < getRandomNumber(this._maxFruitPerYear); i++) {
+    let random = getRandomNumber(this._maxFruitPerYear);
+    for (let i = 0; i < random; i++) {
       let mango = new Mango()
-      this._fruitBasket.push(mango)
+      this._fruitBasket.push(mango);
     }
   }
 
@@ -66,12 +68,14 @@ class MangoTree {
   harvest() {
     for (let i = 0; i < this._fruitBasket.length; i++) {
       if (this._fruitBasket[i]._quality === 'good') {
-        this._goodMangoes += 1
+        this._goodMangoes += 1;
+        this._totalBuah += 1;
       } else {
-        this._badMangoes += 1
+        this._badMangoes += 1;
+        this._totalBuah +=1;
       }
-      this._harvested = `${this._goodMangoes + this._badMangoes} (${this._goodMangoes} good, ${this._badMangoes} bad)`;
     }
+    this._harvested = `${this._goodMangoes + this._badMangoes} (${this._goodMangoes} good, ${this._badMangoes} bad, total ${this._totalBuah})`;
     this._fruitBasket = [];
     this._goodMangoes = 0;
     this._badMangoes = 0;
@@ -92,6 +96,7 @@ function getRandomNumber(max) {
 }
 
 var tree = new MangoTree(10,8,50);
+
 while (tree._healthy !== false){
   tree.grow();
   tree.produceMangoes();
