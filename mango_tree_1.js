@@ -8,12 +8,14 @@ class MangoTree {
     this._maxAge = getRandomNumber(7)
     this._height = 0
     this._tempFruit = [];
-    this._maxFruit = getRandomNumber(10)
+    this._maxFruit = 10
     this._healthy = true
     this._harvested = ''
     this._tempG = 0
     this._tempB = 0
   }
+
+  //Release 0
 
   getAge() {
     return this._age
@@ -31,6 +33,7 @@ class MangoTree {
     return this._good+' '+this._bad;
   }
 
+  //Release 1
   // Get current states here
 
   // Grow the tree
@@ -38,7 +41,7 @@ class MangoTree {
     if (this._age <= this._maxAge) {
       this._age += 1;
       if (this._age < this._maxAge - 2) {
-        this._height += getRandomNumber(3);
+        this._height += getRandomNumber(7);
       }
       if (this._age >= this._maxAge) {
         this._healthy = false
@@ -50,7 +53,7 @@ class MangoTree {
 
   // Produce some mangoes
   produceMangoes() {
-    for (let i = 0; i < this._maxFruit; i++) {
+    for (let i = 0; i < getRandomNumber(this._maxFruit); i++) {
       let mango = new Mango()
       this._tempFruit.push(mango)
     }
