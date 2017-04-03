@@ -19,14 +19,15 @@ class MangoTree {
   getAge() {
     return this._age;
   }
+
   getHeight() {
     return this._height;
-
   }
+
   getFruits() {
     return this._harvested;
-
   }
+
   getHealtyStatus() {
   // Get current states here
     if(this._healthy!==true){
@@ -55,7 +56,7 @@ class MangoTree {
 
   // Produce some mangoes
   produceMangoes() {
-    for (let i = 0; i < getRandomNumber(50); i++) {
+    for (let i = 0; i < getRandomNumber(this._maxFruitPerYear); i++) {
       let mango = new Mango()
       this._fruitBasket.push(mango)
     }
